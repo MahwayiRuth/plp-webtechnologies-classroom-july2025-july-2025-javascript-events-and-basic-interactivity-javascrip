@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khensani Ruth Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <img src="profile.jpg" alt="Khensani Ruth" class="logo">
+    <h1>Khensani Ruth</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero / About Me Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Hi, I'm Khensani Ruth</h2>
+      <p>Web developer passionate about building responsive, user-friendly websites...</p>
+      <button id="viewProjects">View Projects</button>
+    </div>
+    <div class="hero-image">
+      <img src="profile.jpg" alt="Khensani Ruth">
+    </div>
+  </section>
+
+  <!-- Interactive Theme Toggle -->
+  <div class="theme-toggle">
+    <button id="themeToggle">Toggle Dark Mode</button>
+  </div>
+
+  <!-- Main Grid Layout -->
+  <main class="main">
+    <section class="content">
+      <h2>My Projects</h2>
+      <div class="card-container" id="projectCards">
+        <article class="card" tabindex="0">
+          <h3>Project 1</h3>
+          <p class="project-details">A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>Project 2</h3>
+          <p class="project-details">A task manager app using JavaScript and local storage.</p>
+        </article>
+      </div>
+    </section>
+
+    <aside>
+      <h3>About Me</h3>
+      <p>I'm a web developer and student with a passion for learning and creating...</p>
+      <h3>Contact Me</h3>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="email" id="email" placeholder="Your Email" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="formFeedback"></p>
+      <h3>Additional Contact</h3>
+      <ul>
+        <li>Email: ruthmahwayi@gmail.com</li>
+        <li>GitHub: <a href="https://github.com/MahwayiRuth">MahwayiRuth</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- Keyboard Message -->
+  <p id="welcomeMessage" style="display: none;">Welcome, Khensani! Press any key to see this.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
