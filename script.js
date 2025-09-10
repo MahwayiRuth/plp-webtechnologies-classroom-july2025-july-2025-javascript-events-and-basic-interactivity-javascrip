@@ -1,6 +1,8 @@
-// Wait for the DOM to fully load before running scripts
+// Wait for the page to load before running scripts
 document.addEventListener('DOMContentLoaded', () => {
-  // Section 1: Project Details Toggle (Click Event)
+  // Section 1: Project Details Toggle
+  // Shows or hides project details when you click the button.
+  // Easy way to see more info or hide it.
   const viewButton = document.getElementById('viewProjects');
   if (viewButton) {
     const projectCards = document.getElementById('projectCards');
@@ -18,7 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('View Projects button not found');
   }
 
-  // Section 2: Card Highlight and Expansion (Mouseover/Mouseout and Click Events)
+  // Section 2: Card Highlight and Expand
+  // Highlights cards when you hover. Lets you click to see details.
+  // Makes it fun to explore projects.
   const cards = document.getElementsByClassName('card');
   if (cards.length > 0) {
     for (let card of cards) {
@@ -42,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('No cards found');
   }
 
-  // Section 3: Welcome Message (Keyboard Event)
+  // Section 3: Welcome Message
+  // Shows a welcome note for 3 seconds when you press a key.
+  // A nice hello for users.
   const welcomeMessage = document.getElementById('welcomeMessage');
   if (welcomeMessage) {
     document.addEventListener('keydown', () => {
@@ -55,7 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Welcome message element not found');
   }
 
-  // Section 4: Light/Dark Mode Toggle (Click Event)
+  // Section 4: Light/Dark Mode Toggle
+  // Switches between light and dark themes when you click.
+  // Lets users pick their favorite look.
   const themeToggle = document.getElementById('themeToggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
@@ -68,12 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Theme Toggle button not found');
   }
 
-  // Section 5: Custom Form Validation (Submit Event)
+  // Section 5: Form Validation
+  // Checks if name, email, and remarks are correct when you submit.
+  // Gives feedback if something’s wrong.
   const form = document.getElementById('contactForm');
   const feedback = document.getElementById('formFeedback');
   if (form && feedback) {
     form.addEventListener('submit', (event) => {
-      event.preventDefault(); // Prevent page reload
+      event.preventDefault(); // Stop page from reloading
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const remarks = document.getElementById('remarks').value.trim();
@@ -81,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let isValid = true;
       let errorMessage = '';
 
-      // Name validation: Must be non-empty and at least 2 characters
+      // Check name: Must have something and at least 2 letters
       if (name === '') {
         isValid = false;
         errorMessage = 'Name is required.';
@@ -90,14 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage = 'Name must be at least 2 characters.';
       }
 
-      // Email validation: Uses regex for basic email format
+      // Check email: Must be a valid email address
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         isValid = false;
         errorMessage = 'Please enter a valid email address.';
       }
 
-      // Remarks validation: Must be non-empty and under 350 characters
+      // Check remarks: Must have something and under 350 characters
       if (remarks === '') {
         isValid = false;
         errorMessage = 'Your Questions/Remarks are required.';
@@ -106,26 +116,28 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage = 'Your Questions/Remarks must not exceed 350 characters.';
       }
 
-      // Display feedback based on validation
+      // Show feedback based on checks
       if (!isValid) {
         feedback.textContent = errorMessage;
         feedback.className = 'error';
       } else {
         feedback.textContent = 'Form submitted successfully!';
         feedback.className = 'success';
-        form.reset(); // Clear form
+        form.reset(); // Clear the form
       }
     });
   } else {
     console.log('Form or feedback element not found');
   }
 
-  // Section 6: Navigation Scroll (Click Event)
+  // Section 6: Navigation Scroll
+  // Moves to a section smoothly when you click a nav link.
+  // Helps users jump to parts of the page easily.
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
     link.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default anchor jump
-      const targetId = link.getAttribute('href').substring(1); // Remove '#'
+      event.preventDefault(); // Stop normal link jump
+      const targetId = link.getAttribute('href').substring(1); // Get section ID
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
